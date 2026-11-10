@@ -1,0 +1,197 @@
+{
+  "id": "cas-identifiant-unique",
+  "titre": "À remplir : titre du cas (ex. Alerte aux Urgences : ...)",
+  "specialite": "À remplir : spécialité",
+  "scoreInitial": 100,
+  "metadonnees": {
+    "difficulte": "À remplir : Débutant, Intermédiaire ou Avancé",
+    "dureeEstimee": "À remplir : 10 minutes"
+  },
+  "regles": {
+    "penaliteAide": 2,
+    "tentativesDiagnosticAvantReponse": 3
+  },
+  "introduction": {
+    "titre": "Aperçu",
+    "description": "Les informations initiales du dossier sont disponibles : lieu de prise en charge, contexte de la consultation, motif de consultation et constantes vitales.",
+    "lieu": "À remplir : service ou lieu (Urgences, consultation, domicile...)",
+    "contexte": "À remplir : âge, sexe, qui amène le patient, antécédents connus",
+    "motifConsultation": "À remplir : motif principal",
+    "libelles": {
+      "lieu": "Lieu de prise en charge",
+      "contexte": "Contexte de la consultation",
+      "motifConsultation": "Motif de consultation",
+      "constantes": "Constantes"
+    }
+  },
+  "etapes": {
+    "etape1_anamnese": {
+      "titre": "Anamnèse et Histoire",
+      "presentationInitiale": "À remplir : phrase de mise en scène (qui amène le patient, pour quoi).",
+      "accueil": "À remplir : première phrase de la famille ou du patient, courte et naturelle.",
+      "resumeHistoire": "À remplir : l'histoire complète en quelques phrases (documentation pour l'auteur, non affichée).",
+      "recitSpontane": ["apparition", "duree"],
+      "elements": [
+        {
+          "id": "motif",
+          "pertinence": "cle",
+          "reponse": "À remplir : réponse à « Qu'est-ce qui vous amène ? », à la première personne, comme dans la vraie vie.",
+          "note": "À remplir : note courte pour le carnet"
+        },
+        {
+          "id": "apparition",
+          "pertinence": "cle",
+          "reponse": "À remplir : début et mode d'installation.",
+          "note": "À remplir : note courte",
+          "pourquoi": "À remplir : pourquoi cette question compte dans CE cas."
+        },
+        {
+          "id": "duree",
+          "pertinence": "cle",
+          "reponse": "À remplir : durée et évolution.",
+          "note": "À remplir : note courte",
+          "pourquoi": "À remplir : pourquoi cette question compte dans CE cas."
+        },
+        {
+          "id": "localisation",
+          "pertinence": "utile",
+          "reponse": "À remplir.",
+          "note": "À remplir : note courte"
+        },
+        {
+          "id": "allergies",
+          "pertinence": "cle",
+          "reponse": "À remplir : sinon la réponse normale par défaut est utilisée (pas d'allergie).",
+          "note": "À remplir : note courte",
+          "pourquoi": "À remplir : pourquoi c'est clé ici."
+        },
+        {
+          "id": "symptome_specifique",
+          "rubrique": "histoire_maladie",
+          "sousRubrique": "associes",
+          "pertinence": "cle",
+          "libelle": "À remplir : intitulé de la question propre à ce cas (ex. Fièvre)",
+          "questionExemple": "À remplir : la bonne question à poser, en clair.",
+          "motsCles": ["mot1", "mot2"],
+          "reponse": "À remplir : réponse naturelle de la famille.",
+          "note": "À remplir : note courte",
+          "pourquoi": "À remplir : pourquoi cette question est indispensable.",
+          "aValider": true
+        }
+      ],
+      "aide": "À remplir : indice donné quand l'étudiant clique sur « Besoin d'aide ? »."
+    },
+    "etape2_examen_physique": {
+      "titre": "Examen Physique",
+      "constantes": {
+        "tension": "120/80 mmhg",
+        "frequenceCardiaque": "80 bpm",
+        "frequenceRespiratoire": "16 cpm",
+        "saturation": "98% en air ambiant",
+        "temperature": "37,0 °C",
+        "glycemieCapillaire": "100 mg/dl"
+      },
+      "malusSiOubli": 10,
+      "manoeuvres": [
+        {
+          "id": "glasgow",
+          "pertinence": "cle",
+          "resultat": "À remplir : résultat propre au cas (obligatoire pour une manœuvre clé).",
+          "pourquoi": "À remplir : pourquoi cette manœuvre compte dans CE cas.",
+          "aValider": true
+        },
+        {
+          "id": "raideur_nuque",
+          "pertinence": "cle",
+          "resultat": "À remplir.",
+          "pourquoi": "À remplir."
+        },
+        {
+          "id": "ausc_cardiaque",
+          "pertinence": "systematique",
+          "resultat": "À remplir : sinon le résultat normal par défaut est utilisé."
+        },
+        {
+          "id": "foie_rate",
+          "pertinence": "utile",
+          "pourquoi": "À remplir : pourquoi la chercher ici (résultat normal par défaut)."
+        }
+      ],
+      "aide": "À remplir : indice."
+    },
+    "etape3_paraclinique": {
+      "titre": "Bilan Paraclinique",
+      "question": "Quels examens complémentaires demandez-vous en urgence ?",
+      "examensValides": {
+        "examen_preparatoire_a": {
+          "libelle": "À remplir : examen qui doit précéder l'examen sensible (ex. imagerie)",
+          "groupeAlternatif": "nom_du_groupe",
+          "motsCles": ["mot1"],
+          "resultat": "À remplir : résultat."
+        },
+        "examen_preparatoire_b": {
+          "libelle": "À remplir : alternative au précédent (ex. fond d'œil)",
+          "groupeAlternatif": "nom_du_groupe",
+          "motsCles": ["mot2"],
+          "resultat": "À remplir : résultat."
+        },
+        "examen_sensible": {
+          "libelle": "À remplir : examen qui exige une précaution préalable (ex. ponction lombaire)",
+          "motsCles": ["mot3"],
+          "prerequis": {
+            "groupe": "nom_du_groupe",
+            "malus": 10,
+            "libelleJournal": "À remplir : intitulé de la pénalité dans le débriefing",
+            "message": "À remplir : pourquoi il faut d'abord faire A ou B."
+          },
+          "resultat": "À remplir : résultat."
+        },
+        "examen_simple": {
+          "libelle": "À remplir : examen prioritaire sans condition",
+          "motsCles": ["mot4"],
+          "resultat": "À remplir : résultat."
+        }
+      },
+      "examensAcceptables": [
+        {
+          "nom": "Bilan sanguin standard",
+          "motsCles": ["nfs", "hemogramme", "ionogramme", "creatinine", "crp"],
+          "malus": 0
+        }
+      ],
+      "malusExamenInutile": 10,
+      "aide": "À remplir : indice."
+    },
+    "etape4_diagnostic": {
+      "titre": "Poser le Diagnostic",
+      "question": "Quel est votre diagnostic précis ?",
+      "diagnosticsAttendus": [
+        {
+          "nom": "À remplir : diagnostic 1",
+          "points": 10,
+          "motsCles": ["mot1", "synonyme1"]
+        }
+      ],
+      "aide": "À remplir : indice."
+    },
+    "etape5_traitement": {
+      "titre": "Prise en Charge Thérapeutique",
+      "traitementsObligatoires": ["molecule1"],
+      "groupesTraitement": [
+        {
+          "libelle": "À remplir : classe thérapeutique (ex. Antibiotique)",
+          "motsCles": ["molecule1", "classe1"]
+        }
+      ],
+      "erreursFatales": {
+        "motsCles": ["mauvaise_molecule"],
+        "punition": 30,
+        "message": "À remplir : pourquoi cette erreur est dangereuse."
+      }
+    },
+    "etape6_debriefing": {
+      "titre": "Débriefing Pédagogique",
+      "pointsCles": ["Titre court : explication pédagogique.", "Titre court : deuxième point à retenir."]
+    }
+  }
+}
