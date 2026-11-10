@@ -1,0 +1,1205 @@
+{
+  "nomApp": "Cas Zéro",
+  "sousTitre": "Simulateur de cas cliniques",
+  "accroche": "Interrogez, examinez, prescrivez. Chaque décision compte sur votre score.",
+  "boutonCommencer": "Commencer le cas",
+  "boutonEnvoyer": "Envoyer",
+  "boutonAide": "Besoin d'aide ?",
+  "boutonContinuer": "Continuer",
+  "boutonRejouer": "Rejouer le cas",
+  "boutonVoirReponse": "Voir la réponse",
+  "boutonTerminerAnamnese": "Terminer l'anamnèse",
+  "boutonEnvoyerResume": "Envoyer le résumé",
+  "labelScore": "Score",
+  "labelMeilleurScore": "Meilleur score",
+  "labelScoreFinal": "Score final",
+  "labelEtape": "Étape",
+  "etapesCourtes": ["Anamnèse", "Examen Physique", "Paraclinique", "Diagnostic", "Traitement", "Débriefing"],
+  "placeholders": {
+    "etape1_anamnese": "Posez votre question à la famille…",
+    "etape2_examen_physique": "Quel examen réalisez-vous ?",
+    "etape3_paraclinique": "Ex. : les examens que vous demandez…",
+    "etape4_diagnostic": "Votre diagnostic…",
+    "etape5_traitement": "Votre prise en charge…"
+  },
+  "placeholderResume": "Rédigez votre résumé du cas…",
+  "consignes": {
+    "etape1_anamnese": "Interrogez la famille comme devant de vrais proches : posez vos questions librement, une à la fois. Vous passez à la suite quand vous estimez avoir assez d'informations ; les remarques vous seront faites au débriefing.",
+    "etape2_examen_physique": "C'est vous qui menez l'examen : choisissez un outil, puis touchez une zone du corps. Les constantes sont déjà prises.",
+    "etape3_paraclinique": "Quels examens complémentaires demandez-vous en urgence ?",
+    "etape4_diagnostic": "Quel est votre diagnostic précis ?",
+    "etape5_traitement": "Décrivez votre prise en charge thérapeutique."
+  },
+  "libellesConstantes": {
+    "tension": "Tension",
+    "frequenceCardiaque": "Fréq. cardiaque",
+    "frequenceRespiratoire": "Fréq. respiratoire",
+    "saturation": "Saturation",
+    "temperature": "Température",
+    "glycemieCapillaire": "Glycémie capillaire"
+  },
+  "constantesParDefaut": {
+    "tension": "120/80 mmhg",
+    "frequenceCardiaque": "80 bpm",
+    "frequenceRespiratoire": "16 cpm",
+    "saturation": "98% en air ambiant",
+    "temperature": "37,0 °C",
+    "glycemieCapillaire": "100 mg/dl"
+  },
+  "libellesBlocs": {
+    "constantes": "Constantes"
+  },
+  "libellesMeta": {
+    "difficulte": "Difficulté",
+    "dureeEstimee": "Durée estimée"
+  },
+  "libellesMessages": {
+    "famille": "Famille",
+    "resultat": "Résultat",
+    "indice": "Indice"
+  },
+  "libellesDebrief": {
+    "detailScore": "Détail du score",
+    "aucunePenalite": "Aucune pénalité : parcours sans faute.",
+    "pointsCles": "À retenir",
+    "anamnese": "Anamnèse",
+    "pts": "pts",
+    "essentielle": "essentielle",
+    "votreQuestion": "Votre question",
+    "pourquoi": "Pourquoi c'est important",
+    "essayez": "Essayez de demander",
+    "criteresRemplis": "critères remplis",
+    "noteCommunication": "Indicateur pédagogique : il ne modifie pas votre score.",
+    "resume": "Résumé du cas",
+    "aucunResume": "Aucun résumé n'a été rédigé.",
+    "votreResume": "Votre résumé",
+    "elementsResume": "éléments présents",
+    "resumeType": "Résumé type",
+    "vosEtapes": "Retour sur vos étapes"
+  },
+  "journal": {
+    "aide": "Indice utilisé",
+    "examenInutile": "Examen inutile",
+    "diagnosticManque": "Diagnostic non trouvé",
+    "erreurFatale": "Erreur fatale",
+    "questionEssentielle": "Question essentielle non posée",
+    "resumeInsuffisant": "Résumé du cas insuffisant"
+  },
+  "conversation": {
+    "nonCompris": [
+      "Je ne suis pas sûr de comprendre, docteur. Pouvez-vous préciser ?",
+      "Excusez-moi docteur, je n'ai pas bien compris votre question.",
+      "Pouvez-vous me le demander autrement, docteur ?"
+    ],
+    "dejaRepondu": "Je vous l'ai déjà dit, docteur. {reponse}",
+    "attente": "Oui, docteur ?",
+    "salutation": "Bonjour docteur.",
+    "empathie": "Merci docteur."
+  },
+  "communication": {
+    "titre": "Communication",
+    "debutsQuestionsOuvertes": [
+      "comment", "qu est ce", "que", "racontez", "decrivez", "expliquez", "parlez moi",
+      "dites moi", "pouvez vous me dire", "pouvez vous me raconter", "pouvez vous me decrire",
+      "pouvez vous m expliquer", "quels sont", "quelles sont", "qu avez vous", "pourquoi"
+    ],
+    "criteres": [
+      {
+        "id": "salutation",
+        "libelle": "Salutation",
+        "motsCles": ["bonjour", "bonsoir", "salut"],
+        "ok": "Vous avez salué la famille dès le début.",
+        "ko": "Vous n'avez pas salué la famille. Commencez toujours par un « Bonjour »."
+      },
+      {
+        "id": "nom",
+        "libelle": "Présentation par votre nom",
+        "motsCles": [
+          "je m appelle", "mon nom est", "moi c est", "je me presente", "je suis le dr",
+          "je suis dr"
+        ],
+        "ok": "Vous vous êtes présenté(e) par votre nom.",
+        "ko": "Vous ne vous êtes pas présenté(e). Essayez : « Bonjour, je m'appelle [votre nom] ». Cela rassure et installe la confiance."
+      },
+      {
+        "id": "role",
+        "libelle": "Rôle et but de l'entretien",
+        "motsCles": [
+          "je suis le docteur", "je suis docteur", "je suis le medecin", "je suis medecin",
+          "je suis interne", "je suis l interne", "je suis etudiant", "je suis stagiaire",
+          "je suis externe", "je suis le dr", "je vais vous poser", "quelques questions",
+          "je suis la pour", "je vais m occuper", "je m occupe de"
+        ],
+        "ok": "Vous avez expliqué votre rôle ou le but de l'entretien.",
+        "ko": "Vous n'avez pas précisé votre rôle ni le but de l'entretien. Essayez : « Je suis le médecin de garde, je vais vous poser quelques questions »."
+      },
+      {
+        "id": "empathie",
+        "libelle": "Empathie",
+        "motsCles": [
+          "desole", "je comprends", "courage", "ca doit etre", "difficile", "inquiet",
+          "inquietude", "rassurer", "on va s occuper", "nous allons nous occuper",
+          "je vais tout faire", "faire de notre mieux", "ne vous inquietez pas", "soutien"
+        ],
+        "ok": "Vous avez reconnu l'inquiétude de la famille.",
+        "ko": "Vous n'avez pas reconnu l'inquiétude de la famille. Un mot comme « Je comprends que vous soyez inquiets » crée de la confiance."
+      },
+      {
+        "id": "reformulation",
+        "libelle": "Reformulation avec la famille",
+        "motsCles": [
+          "si je resume", "pour resumer", "si je comprends bien", "donc si je comprends",
+          "en resume", "si j ai bien compris", "je recapitule", "si je recapitule",
+          "c est bien ca"
+        ],
+        "ok": "Vous avez vérifié votre compréhension avec la famille.",
+        "ko": "Vous n'avez pas résumé l'histoire avec la famille. Essayez : « Si je comprends bien, tout a commencé il y a… »."
+      },
+      {
+        "id": "questionsOuvertes",
+        "libelle": "Questions ouvertes",
+        "type": "ouvertes",
+        "minimum": 2,
+        "ratio": 0.25,
+        "ok": "Vous avez laissé la famille raconter grâce à des questions ouvertes.",
+        "ko": "Presque uniquement des questions fermées. Alternez avec des questions ouvertes : « Racontez-moi comment tout a commencé »."
+      }
+    ]
+  },
+  "moniteur": {
+    "titre": "Moniteur des signes vitaux",
+    "ordre": [
+      "frequenceCardiaque", "tension", "saturation", "frequenceRespiratoire", "temperature",
+      "glycemieCapillaire"
+    ],
+    "libelles": {
+      "frequenceCardiaque": "FC",
+      "tension": "TA",
+      "saturation": "SpO₂",
+      "frequenceRespiratoire": "FR",
+      "temperature": "T°",
+      "glycemieCapillaire": "Glyc."
+    },
+    "unites": {
+      "frequenceCardiaque": "bpm",
+      "tension": "mmHg",
+      "saturation": "%",
+      "frequenceRespiratoire": "cpm",
+      "temperature": "°C",
+      "glycemieCapillaire": "mg/dl"
+    }
+  },
+  "messages": {
+    "resumeEnregistre": "Résumé enregistré. Il sera commenté au débriefing.",
+    "resumeTropCourt": "Votre résumé est trop court : présentez le cas en quelques phrases complètes.",
+    "examenNonReconnu": "Précisez l'examen à réaliser.",
+    "examenDejaFait": "Cet examen a déjà été réalisé.",
+    "examenNonPrioritaire": "Examen raisonnable mais non prioritaire ici : aucun résultat n'est disponible dans ce cas.",
+    "examenInutile": "Examen non prioritaire dans cette situation : -{points} points.",
+    "prerequisPenalite": "Prérequis non respecté : -{points} points.",
+    "bilanComplet": "Bilan paraclinique complet. Les examens prioritaires sont réalisés.",
+    "diagnosticTrouve": "Diagnostic validé :",
+    "diagnosticDejaTrouve": "Ce diagnostic est déjà validé.",
+    "diagnosticIncorrect": "Diagnostic non reconnu. Relisez les résultats du LCR et de la goutte épaisse.",
+    "diagnosticsComplets": "Les deux atteintes sont identifiées.",
+    "diagnosticsReponse": "Diagnostics attendus :",
+    "diagnosticsPenalite": "Diagnostic(s) non trouvé(s) par vous : -{points} points.",
+    "traitementTrouve": "Élément validé :",
+    "traitementPartiel": "Prise en charge incomplète. Vérifiez qu'elle couvre à la fois le paludisme et la méningite.",
+    "traitementComplet": "Prise en charge validée : antipaludique et antibiothérapie.",
+    "traitementNonReconnu": "Aucun traitement reconnu dans votre réponse.",
+    "aideUtilisee": "Indice utilisé : -{points} points.",
+    "erreurFataleTitre": "Erreur fatale : -{points} points"
+  },
+  "mentions": [
+    {
+      "min": 90,
+      "texte": "Excellent raisonnement clinique"
+    },
+    {
+      "min": 70,
+      "texte": "Bonne prise en charge"
+    },
+    {
+      "min": 40,
+      "texte": "À consolider"
+    },
+    {
+      "min": 0,
+      "texte": "À revoir : rejouez le cas"
+    }
+  ],
+  "erreurChargement": "Impossible de charger le cas clinique. Ouvrez l'application depuis un serveur web (Vercel ou npx serve).",
+  "anamnese": {
+    "rubriques": [
+      {
+        "id": "symptome_dominant",
+        "titre": "Symptôme dominant",
+        "sousRubriques": []
+      },
+      {
+        "id": "antecedents",
+        "titre": "Antécédents",
+        "sousRubriques": [
+          {
+            "id": "medicaux",
+            "titre": "Antécédents médicaux"
+          },
+          {
+            "id": "chirurgicaux",
+            "titre": "Antécédents chirurgicaux"
+          },
+          {
+            "id": "gyneco",
+            "titre": "Gynéco-obstétrique"
+          },
+          {
+            "id": "medicaments",
+            "titre": "Médicaments habituels"
+          },
+          {
+            "id": "allergies",
+            "titre": "Allergies"
+          },
+          {
+            "id": "familiaux",
+            "titre": "Antécédents familiaux"
+          },
+          {
+            "id": "vaccination",
+            "titre": "Vaccination"
+          }
+        ]
+      },
+      {
+        "id": "histoire_maladie",
+        "titre": "Histoire de la maladie actuelle",
+        "sousRubriques": [
+          {
+            "id": "caracterisation",
+            "titre": "Caractérisation de la plainte"
+          },
+          {
+            "id": "associes",
+            "titre": "Symptômes associés"
+          },
+          {
+            "id": "prise_en_charge",
+            "titre": "Traitements reçus avant la consultation"
+          }
+        ]
+      },
+      {
+        "id": "complements",
+        "titre": "Compléments d'anamnèse",
+        "sousRubriques": [
+          {
+            "id": "mode_vie",
+            "titre": "Mode de vie"
+          },
+          {
+            "id": "environnement",
+            "titre": "Environnement, voyage et prévention"
+          },
+          {
+            "id": "systemes",
+            "titre": "Revue des systèmes"
+          }
+        ]
+      }
+    ],
+    "questionsStandard": {
+      "motif": {
+        "rubrique": "symptome_dominant",
+        "sousRubrique": null,
+        "libelle": "Motif de consultation",
+        "motsCles": ["motif", "plainte", "se plaint", "amene", "probleme", "ne va pas"],
+        "questionExemple": "Qu'est-ce qui vous amène aujourd'hui ?",
+        "pourquoi": "Le motif de consultation est le point de départ de tout le raisonnement clinique."
+      },
+      "atcd_medicaux": {
+        "rubrique": "antecedents",
+        "sousRubrique": "medicaux",
+        "libelle": "Maladies chroniques et antécédents médicaux",
+        "motsCles": [
+          "antecedent", "atcd", "maladie chronique", "maladies chroniques", "maladie connue",
+          "maladies connues", "probleme de sante", "problemes de sante", "diabete", "hypertension",
+          "drepanocytose", "asthme", "vih", "suivie pour", "suivi pour", "deja malade",
+          "deja ete malade", "ses maladies", "sante habituelle", "bonne sante"
+        ],
+        "questionExemple": "A-t-elle des maladies connues, comme le diabète ou l'hypertension ?",
+        "pourquoi": "Les antécédents médicaux peuvent expliquer ou aggraver la maladie actuelle et influencent le choix du traitement.",
+        "defaut": "Non, elle n'a aucune maladie connue, elle n'a jamais été suivie pour quelque chose de particulier.",
+        "noteDefaut": "Pas de maladie connue",
+        "exclusions": ["familia", "chirurgi", "gyneco", "obstetri"]
+      },
+      "atcd_hospitalisations": {
+        "rubrique": "antecedents",
+        "sousRubrique": "medicaux",
+        "libelle": "Hospitalisations antérieures",
+        "motsCles": [
+          "hospitalis", "deja ete hospital", "admise a l hopital", "sejour a l hopital",
+          "deja a l hopital", "transfusion"
+        ],
+        "questionExemple": "A-t-elle déjà été hospitalisée ?",
+        "pourquoi": "Une hospitalisation antérieure peut révéler une maladie connue ou un épisode semblable.",
+        "defaut": "Non, elle n'a jamais été hospitalisée.",
+        "noteDefaut": "Jamais hospitalisée"
+      },
+      "atcd_chirurgicaux": {
+        "rubrique": "antecedents",
+        "sousRubrique": "chirurgicaux",
+        "libelle": "Chirurgies antérieures",
+        "motsCles": [
+          "operee", "opere", "operation", "chirurgie", "chirurgical", "intervention", "cesarienne",
+          "anesthesie"
+        ],
+        "questionExemple": "A-t-elle déjà été opérée ?",
+        "pourquoi": "Une chirurgie antérieure peut expliquer des symptômes et compte avant toute anesthésie.",
+        "defaut": "Non, elle n'a jamais été opérée.",
+        "noteDefaut": "Jamais opérée"
+      },
+      "grossesse": {
+        "rubrique": "antecedents",
+        "sousRubrique": "gyneco",
+        "libelle": "Grossesse et cycle menstruel",
+        "motsCles": [
+          "enceinte", "grossesse", "gestation", "regles", "=ddr", "menstru", "accouch",
+          "contracepti", "pilule", "derniere regle"
+        ],
+        "questionExemple": "Est-elle enceinte ? Quand ont eu lieu ses dernières règles ?",
+        "pourquoi": "Chez une femme en âge de procréer, la grossesse peut modifier le choix des examens et des médicaments."
+      },
+      "medicaments_habituels": {
+        "rubrique": "antecedents",
+        "sousRubrique": "medicaments",
+        "libelle": "Médicaments habituels",
+        "motsCles": [
+          "traitement habituel", "traitement au long cours", "traitement en cours",
+          "traitement regulier", "medicament", "suivie par", "suivi par"
+        ],
+        "questionExemple": "Prend-elle des médicaments de façon habituelle ?",
+        "pourquoi": "Les médicaments habituels peuvent expliquer des symptômes ou interagir avec les traitements à prescrire.",
+        "defaut": "Non, elle ne prend aucun traitement au long cours.",
+        "noteDefaut": "Pas de traitement habituel",
+        "exclusions": ["elle pris", "a pris", "pour soulager", "avant de venir"]
+      },
+      "allergies": {
+        "rubrique": "antecedents",
+        "sousRubrique": "allergies",
+        "libelle": "Allergies",
+        "motsCles": [
+          "allergi", "intolerance", "reaction a un medicament", "reaction medicamenteuse",
+          "penicilline", "anaphyla"
+        ],
+        "questionExemple": "A-t-elle des allergies, notamment aux médicaments ?",
+        "pourquoi": "Il faut connaître les allergies avant toute prescription.",
+        "defaut": "Non, on ne lui connaît aucune allergie.",
+        "noteDefaut": "Pas d'allergie connue"
+      },
+      "atcd_familiaux": {
+        "rubrique": "antecedents",
+        "sousRubrique": "familiaux",
+        "libelle": "Antécédents familiaux",
+        "motsCles": [
+          "dans la famille", "familiaux", "familial", "heredit", "ses parents", "son pere",
+          "sa mere", "frere", "soeur"
+        ],
+        "questionExemple": "Y a-t-il des maladies particulières dans la famille ?",
+        "pourquoi": "Certaines maladies sont familiales ou touchent plusieurs membres d'une même famille.",
+        "defaut": "Non, pas de maladie particulière dans la famille, à ma connaissance.",
+        "noteDefaut": "Pas d'antécédent familial notable"
+      },
+      "vaccination": {
+        "rubrique": "antecedents",
+        "sousRubrique": "vaccination",
+        "libelle": "Statut vaccinal",
+        "motsCles": ["vaccin", "immunisation", "carnet"],
+        "questionExemple": "Est-elle à jour de ses vaccins ?",
+        "pourquoi": "Le statut vaccinal change la probabilité de certaines infections.",
+        "defaut": "Je ne sais pas exactement, son carnet de vaccination n'est pas avec nous.",
+        "noteDefaut": "Statut vaccinal inconnu"
+      },
+      "apparition": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Apparition (début et mode d'installation)",
+        "motsCles": [
+          "depuis quand", "depuis combien", "quand est ce que", "quand ca a commence",
+          "quand cela a commence", "commence", "debut", "apparu", "apparition", "premiers signes",
+          "premier signe", "il y a combien", "remonte", "brutal", "brusque", "progressif",
+          "soudain", "installe"
+        ],
+        "questionExemple": "Depuis quand cela a-t-il commencé ? Comment cela s'est-il installé ?",
+        "pourquoi": "Dater le début et le mode d'installation permet de juger de la durée d'évolution et d'orienter la cause."
+      },
+      "localisation": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Localisation",
+        "motsCles": [
+          "ou a t elle mal", "ou avait elle mal", "ou est la douleur", "ou se situe",
+          "ou se trouve", "localis", "siege", "endroit", "quel cote", "ou fait mal",
+          "ou ca fait mal", "ou elle a mal", "front", "=tempe", "=tempes", "occiput"
+        ],
+        "questionExemple": "Où a-t-elle mal exactement ?",
+        "pourquoi": "La localisation d'un symptôme aide à identifier l'organe ou la région en cause."
+      },
+      "duree": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Durée et évolution",
+        "motsCles": [
+          "combien de temps", "evolu", "empire", "s aggrave", "s est aggrave", "plus fort",
+          "s ameliore", "s est ameliore", "=constant", "permanent", "intermittent",
+          "chaque episode", "par crise", "au fil", "d un jour a l autre", "depuis lors",
+          "plus intense", "de pire en pire", "s intensifie"
+        ],
+        "questionExemple": "Comment cela a-t-il évolué depuis le début ? Est-ce permanent ou par épisodes ?",
+        "pourquoi": "La durée et l'évolution (stable, qui s'aggrave, qui s'améliore) renseignent sur la gravité et la nature du processus."
+      },
+      "caractere": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Caractère ou qualité",
+        "motsCles": [
+          "caractere", "qualite", "comment est la douleur", "comment etait la douleur",
+          "comment est le mal", "comment etait le mal", "comment est ce mal", "type de douleur",
+          "pulsatile", "battement", "etau", "serre", "serrement", "brulure", "poignard",
+          "pesanteur", "elancement", "comment la decrit", "decrit elle"
+        ],
+        "questionExemple": "Comment décrit-elle sa douleur : battante, en étau, brûlante ?",
+        "pourquoi": "Le caractère du symptôme (type de douleur, qualité) aide à distinguer les causes possibles."
+      },
+      "facteurs": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Facteurs aggravants ou atténuants",
+        "motsCles": [
+          "aggravant", "qu est ce qui aggrave", "ce qui aggrave", "qu est ce qui soulage",
+          "ce qui soulage", "soulage", "ce qui calme", "calme la douleur", "apaise", "facteur",
+          "declenche", "provoque", "lumiere", "bruit", "position", "repos", "effort",
+          "ce qui change", "attenu"
+        ],
+        "questionExemple": "Qu'est-ce qui aggrave ou soulage la douleur ?",
+        "pourquoi": "Ce qui aggrave ou soulage un symptôme éclaire son mécanisme et l'efficacité des traitements déjà pris."
+      },
+      "irradiation": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Irradiation",
+        "motsCles": [
+          "irradi", "se propage", "s etend", "descend", "douleur ailleurs", "ailleurs", "=dos",
+          "epaule"
+        ],
+        "questionExemple": "La douleur se propage-t-elle ailleurs ?",
+        "pourquoi": "L'irradiation d'un symptôme peut orienter vers certaines causes."
+      },
+      "chronologie": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Chronologie (horaire, rythme)",
+        "motsCles": [
+          "horaire", "moment de la journee", "a quel moment", "le matin", "le soir", "la nuit",
+          "nocturne", "a quelle heure", "tout le temps", "en continu", "par moments", "rythme",
+          "irregulier", "variation", "dans la journee"
+        ],
+        "questionExemple": "À quels moments de la journée est-ce le plus fort ?",
+        "pourquoi": "Le rythme (horaire, périodicité) d'un symptôme aide à en reconnaître la cause."
+      },
+      "gravite": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "caracterisation",
+        "libelle": "Intensité et retentissement",
+        "motsCles": [
+          "intense", "intensite", "sur 10", "sur une echelle", "echelle", "tres forte", "tres mal",
+          "insupportable", "severe", "gravite", "retentissement", "empeche", "dormir", "sommeil",
+          "activites", "travailler", "quotidien", "handicap", "=fort", "=forte"
+        ],
+        "questionExemple": "Sur une échelle de 0 à 10, quelle est l'intensité ? Cela l'empêche-t-il de dormir ou de s'activer ?",
+        "pourquoi": "L'intensité et le retentissement sur la vie quotidienne mesurent la gravité de la plainte."
+      },
+      "symptomes_associes": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "associes",
+        "libelle": "Symptômes associés",
+        "motsCles": [
+          "autre symptome", "autres symptomes", "autres signes", "autre signe", "associe",
+          "accompagne", "en plus de", "d autres plaintes", "autre plainte", "rien d autre"
+        ],
+        "questionExemple": "A-t-elle d'autres symptômes en plus ?",
+        "pourquoi": "Les symptômes associés permettent de regrouper les signes en syndrome et d'orienter le diagnostic."
+      },
+      "traumatisme": {
+        "rubrique": "histoire_maladie",
+        "sousRubrique": "associes",
+        "libelle": "Traumatisme ou chute",
+        "motsCles": ["traumat", "chute", "tombee", "=coup", "=choc", "accident", "bagarre"],
+        "questionExemple": "A-t-elle fait une chute ou reçu un coup à la tête ?",
+        "pourquoi": "Devant un trouble de la conscience ou des maux de tête, il faut toujours rechercher un traumatisme.",
+        "defaut": "Non, elle n'est pas tombée et elle n'a reçu aucun coup à la tête.",
+        "noteDefaut": "Pas de traumatisme"
+      },
+      "mode_vie": {
+        "rubrique": "complements",
+        "sousRubrique": "mode_vie",
+        "libelle": "Tabac, alcool et autres substances",
+        "motsCles": [
+          "fume", "fumer", "tabac", "cigarette", "alcool", "=boit", "boisson", "drogue",
+          "substance", "toxique", "cannabis", "habitudes", "mode de vie"
+        ],
+        "questionExemple": "Fume-t-elle ? Boit-elle de l'alcool ? Prend-elle des drogues ?",
+        "pourquoi": "Le tabac, l'alcool et les autres substances modifient le risque de nombreuses maladies.",
+        "defaut": "Elle ne fume pas, ne boit pas d'alcool et ne prend aucune drogue.",
+        "noteDefaut": "Ni tabac, ni alcool, ni drogue"
+      },
+      "voyage": {
+        "rubrique": "complements",
+        "sousRubrique": "environnement",
+        "libelle": "Voyage ou séjour récent",
+        "motsCles": [
+          "voyage", "deplacement", "sejour", "retour de", "est elle partie", "provenance",
+          "quitte la ville"
+        ],
+        "questionExemple": "A-t-elle voyagé ou séjourné ailleurs récemment ?",
+        "pourquoi": "Un voyage ou un séjour récent peut faire évoquer certaines infections.",
+        "defaut": "Non, elle n'a pas quitté la ville récemment, elle vit ici avec nous.",
+        "noteDefaut": "Pas de voyage récent"
+      },
+      "contage": {
+        "rubrique": "complements",
+        "sousRubrique": "environnement",
+        "libelle": "Contact avec des personnes malades",
+        "motsCles": [
+          "contage", "contact avec", "personne malade", "autres malades", "quelqu un d autre",
+          "entourage", "autres cas", "memes symptomes", "meme symptome", "d autres personnes",
+          "autour d elle"
+        ],
+        "questionExemple": "D'autres personnes sont-elles malades autour d'elle ?",
+        "pourquoi": "D'autres personnes malades dans l'entourage peuvent signaler une infection contagieuse.",
+        "defaut": "Non, personne d'autre n'est malade à la maison.",
+        "noteDefaut": "Pas de contage"
+      },
+      "prevention_palu": {
+        "rubrique": "complements",
+        "sousRubrique": "environnement",
+        "libelle": "Prévention du paludisme",
+        "motsCles": [
+          "moustiquaire", "moustique", "prophylaxie", "preventif", "prevention", "insecticide",
+          "repulsif"
+        ],
+        "questionExemple": "Dort-elle sous moustiquaire ? Prend-elle un traitement préventif contre le paludisme ?",
+        "pourquoi": "En zone d'endémie, l'absence de moustiquaire ou de prévention augmente le risque de paludisme."
+      },
+      "revue_respiratoire": {
+        "rubrique": "complements",
+        "sousRubrique": "systemes",
+        "libelle": "Appareil respiratoire",
+        "motsCles": ["toux", "tousse", "respirer", "respiration", "essouffl", "dyspnee", "crachat"],
+        "questionExemple": "A-t-elle de la toux ou du mal à respirer ?",
+        "pourquoi": "La revue des systèmes recherche des signes que la famille n'a pas pensé à signaler.",
+        "defaut": "Non, pas de toux ni de difficulté pour respirer.",
+        "noteDefaut": "Pas de signe respiratoire"
+      },
+      "revue_digestive": {
+        "rubrique": "complements",
+        "sousRubrique": "systemes",
+        "libelle": "Appareil digestif",
+        "motsCles": ["diarrhee", "selles", "ventre", "abdomen", "abdominal", "transit", "constipation"],
+        "questionExemple": "A-t-elle de la diarrhée ou mal au ventre ?",
+        "pourquoi": "La revue des systèmes recherche des signes que la famille n'a pas pensé à signaler.",
+        "defaut": "Non, pas de diarrhée ni de douleur au ventre.",
+        "noteDefaut": "Pas de signe digestif"
+      },
+      "revue_urinaire": {
+        "rubrique": "complements",
+        "sousRubrique": "systemes",
+        "libelle": "Appareil urinaire",
+        "motsCles": ["urine", "uriner", "miction", "urinaire", "pipi"],
+        "questionExemple": "Comment sont ses urines ?",
+        "pourquoi": "La revue des systèmes recherche des signes que la famille n'a pas pensé à signaler.",
+        "defaut": "Rien de particulier du côté des urines.",
+        "noteDefaut": "Pas de signe urinaire"
+      },
+      "revue_cutanee": {
+        "rubrique": "complements",
+        "sousRubrique": "systemes",
+        "libelle": "Peau",
+        "motsCles": ["eruption", "bouton", "taches", "peau", "rash", "plaque"],
+        "questionExemple": "A-t-elle des boutons ou des taches sur la peau ?",
+        "pourquoi": "La revue des systèmes recherche des signes que la famille n'a pas pensé à signaler.",
+        "defaut": "Non, pas de boutons ni de taches sur la peau.",
+        "noteDefaut": "Pas d'éruption cutanée"
+      }
+    },
+    "questionsOuvertes": [
+      "racontez", "raconter", "expliquez", "dites moi tout", "dites moi ce qui",
+      "que s est il passe", "qu est ce qui s est passe", "qu est ce qui se passe",
+      "comment ca s est passe", "parlez moi", "depuis le debut", "decrivez moi ce qui",
+      "ce qui est arrive", "que lui arrive", "qu est ce qui lui arrive"
+    ],
+    "pertinences": {
+      "cle": "Question clé",
+      "utile": "Utile",
+      "systematique": "Systématique"
+    },
+    "ecrit": "La famille répond…",
+    "boutonTerminer": "Terminer l'anamnèse",
+    "confirmation": {
+      "texte": "Passer à l'examen physique ? Si vous avez oublié des questions, les remarques vous seront faites au débriefing.",
+      "oui": "Oui, passer à l'examen",
+      "non": "Continuer l'interrogatoire"
+    },
+    "carnet": {
+      "titre": "Mon carnet d'anamnèse",
+      "vide": "Rien de noté pour le moment.",
+      "compteur": "{n} note(s)"
+    },
+    "indice": {
+      "rubrique": "Vous n'avez encore rien demandé dans la rubrique « {rubrique} ».",
+      "element": "Il vous reste des questions importantes à poser dans la rubrique « {rubrique} ».",
+      "complet": "Vous avez couvert l'essentiel des questions clés. Vous pouvez passer à la suite quand vous le souhaitez."
+    },
+    "reponses": {
+      "salutation": [
+        "Bonjour docteur. Aidez-nous, s'il vous plaît, on est très inquiets.",
+        "Bonjour docteur, merci de vous occuper d'elle.",
+        "Bonjour docteur. S'il vous plaît, faites vite, elle ne va pas bien."
+      ],
+      "nonCompris": [
+        "Je ne sais pas trop quoi vous répondre, docteur… Vous pouvez me poser la question autrement ?",
+        "Euh… je ne vois pas bien ce que vous voulez savoir, docteur.",
+        "Pardon docteur, je ne sais pas. Peut-être que je n'ai pas remarqué."
+      ],
+      "dejaDit": [
+        "Je vous l'ai déjà dit, docteur.", "Comme je vous l'ai expliqué tout à l'heure, docteur.",
+        "Je n'ai rien à ajouter là-dessus, docteur, je vous ai tout dit."
+      ],
+      "tropDeQuestions": [
+        "Docteur, vous me posez beaucoup de questions d'un coup, je m'y perds. Posez-les-moi une par une, s'il vous plaît.",
+        "Doucement docteur, je ne peux pas répondre à tout en même temps. Une question à la fois, s'il vous plaît."
+      ]
+    },
+    "communication": {
+      "titre": "Communication (retour non noté)",
+      "motsCles": {
+        "salutation": ["bonjour", "bonsoir", "salut", "bonne journee", "bienvenue"],
+        "presentation": [
+          "je suis le docteur", "je suis docteur", "je suis le medecin", "je suis medecin",
+          "je suis l interne", "je suis l externe", "je suis etudiant", "je suis infirmier",
+          "je suis stagiaire", "je m appelle", "moi c est", "mon nom est", "medecin de garde",
+          "medecin des urgences"
+        ],
+        "empathie": [
+          "desole", "je comprends", "comprends votre", "courage", "rassur", "ne vous inquietez",
+          "c est difficile", "doit etre difficile", "doit etre dur", "tout faire pour",
+          "on va tout faire", "faire de notre mieux", "inquietude", "angoisse", "soutien"
+        ],
+        "synthese": [
+          "si je resume", "pour resumer", "en resume", "recapitul", "si je comprends bien",
+          "si j ai bien compris", "laissez moi verifier", "resumons",
+          "pour etre sur de bien comprendre", "autre chose a ajouter", "quelque chose a ajouter",
+          "souhaitez vous ajouter"
+        ]
+      },
+      "retours": {
+        "salutation": {
+          "libelle": "Saluer la famille",
+          "ok": "Vous avez salué la famille : un bon début pour créer un climat de confiance.",
+          "ko": "Vous n'avez pas salué la famille. Commencer par un bonjour pose un cadre respectueux."
+        },
+        "presentation": {
+          "libelle": "Se présenter et préciser son rôle",
+          "ok": "Vous vous êtes présenté : la famille sait à qui elle parle.",
+          "ko": "Pensez à vous présenter et à dire votre rôle. Essayez : « Bonjour, je suis le docteur X, je vais m'occuper d'elle. »"
+        },
+        "empathie": {
+          "libelle": "Reconnaître l'inquiétude de la famille",
+          "ok": "Vous avez reconnu l'inquiétude de la famille : cela renforce la confiance.",
+          "ko": "La famille est angoissée. Une phrase comme « Je comprends votre inquiétude, nous allons nous occuper d'elle » aide à instaurer la confiance."
+        },
+        "synthese": {
+          "libelle": "Résumer et vérifier avec la famille",
+          "ok": "Vous avez résumé ou invité la famille à compléter : c'est la bonne façon de vérifier la compréhension.",
+          "ko": "Terminez par un résumé. Essayez : « Si je résume ce que vous m'avez dit… Est-ce bien cela ? Avez-vous autre chose à ajouter ? »"
+        }
+      }
+    },
+    "debrief": {
+      "titre": "Anamnèse : ce que vous avez recueilli",
+      "intro": "Une bonne anamnèse est la base du diagnostic. Voici, rubrique par rubrique, ce que vous avez demandé et ce qui restait à explorer. Aucun point n'est retiré ici : ce retour est pédagogique.",
+      "resumeCles": "Questions clés posées : {a} sur {b}",
+      "resumeTotal": "Informations recueillies au total : {a} sur {b}",
+      "aucuneQuestion": "Vous n'avez posé aucune question à la famille.",
+      "questionPosee": "Votre question",
+      "questionAPoser": "Question à poser",
+      "pourquoi": "Pourquoi c'est important",
+      "note": "Noté"
+    }
+  },
+  "examenPhysique": {
+    "consigne": "Choisissez un outil, puis touchez une zone du corps. Chaque résultat va dans votre carnet.",
+    "carnetTitre": "Carnet d'examen",
+    "carnetVide": "Aucune manœuvre réalisée pour l'instant.",
+    "messageAucuneCle": "Vous quittez l'examen sans avoir recherché de signe méningé ni évalué la conscience : -{points} points. Les résultats clés sont ajoutés à votre carnet.",
+    "journalOubli": "Examen clé oublié (signes neurologiques)",
+    "debrief": {
+      "titre": "Examen clinique",
+      "intro": "Les manœuvres réalisées et celles qu'il fallait penser à faire.",
+      "resumeCles": "{a} / {b} manœuvres clés réalisées",
+      "resumeTotal": "{a} manœuvres réalisées au total",
+      "aucune": "Aucune manœuvre réalisée.",
+      "pourquoi": "Pourquoi c'est important",
+      "resultat": "Résultat",
+      "aFaire": "À penser à faire",
+      "cle": "Manœuvre clé"
+    },
+    "regions": [
+      {
+        "id": "general",
+        "libelle": "Général",
+        "manoeuvres": [
+          {
+            "id": "aspect_general",
+            "libelle": "Aspect général et faciès",
+            "technique": "Inspection",
+            "defaut": "Patient éveillé, bien orienté, état général conservé.",
+            "zone": "general"
+          },
+          {
+            "id": "hydratation",
+            "libelle": "État d'hydratation (pli cutané, muqueuses)",
+            "technique": "Inspection",
+            "defaut": "Muqueuses humides, pas de pli cutané.",
+            "zone": "tete"
+          },
+          {
+            "id": "conjonctives",
+            "libelle": "Conjonctives (pâleur, ictère)",
+            "technique": "Inspection",
+            "defaut": "Conjonctives bien colorées, sans ictère.",
+            "zone": "tete"
+          },
+          {
+            "id": "ganglions",
+            "libelle": "Aires ganglionnaires",
+            "technique": "Palpation",
+            "defaut": "Aires ganglionnaires superficielles libres.",
+            "zone": "tete"
+          },
+          {
+            "id": "peau",
+            "libelle": "Peau et téguments (éruption, purpura)",
+            "technique": "Inspection",
+            "defaut": "Pas d'éruption, pas de purpura, pas de lésion cutanée.",
+            "zone": "general"
+          }
+        ]
+      },
+      {
+        "id": "tete_cou",
+        "libelle": "Tête et cou",
+        "manoeuvres": [
+          {
+            "id": "orl",
+            "libelle": "Gorge et oreilles (ORL)",
+            "technique": "Inspection",
+            "defaut": "Pharynx non inflammatoire, tympans normaux.",
+            "zone": "tete"
+          },
+          {
+            "id": "cou",
+            "libelle": "Cou : thyroïde et masses",
+            "technique": "Palpation",
+            "defaut": "Pas de masse cervicale, thyroïde normale.",
+            "zone": "tete"
+          }
+        ]
+      },
+      {
+        "id": "thorax",
+        "libelle": "Thorax",
+        "manoeuvres": [
+          {
+            "id": "thorax_inspection",
+            "libelle": "Thorax : forme et mouvements respiratoires",
+            "technique": "Inspection",
+            "defaut": "Thorax symétrique, pas de signe de lutte respiratoire.",
+            "zone": "thorax"
+          },
+          {
+            "id": "thorax_palpation",
+            "libelle": "Thorax : vibrations vocales",
+            "technique": "Palpation",
+            "defaut": "Vibrations vocales normales, pas de douleur.",
+            "zone": "thorax"
+          },
+          {
+            "id": "thorax_percussion",
+            "libelle": "Thorax : sonorité",
+            "technique": "Percussion",
+            "defaut": "Sonorité normale des deux champs pulmonaires.",
+            "zone": "thorax"
+          },
+          {
+            "id": "ausc_pulmonaire",
+            "libelle": "Auscultation pulmonaire",
+            "technique": "Auscultation",
+            "defaut": "Murmure vésiculaire pur, sans bruit surajouté.",
+            "zone": "thorax"
+          }
+        ]
+      },
+      {
+        "id": "coeur",
+        "libelle": "Cœur et vaisseaux",
+        "manoeuvres": [
+          {
+            "id": "pouls",
+            "libelle": "Pouls et temps de recoloration",
+            "technique": "Palpation",
+            "defaut": "Pouls régulier, bien frappé, temps de recoloration inférieur à 3 secondes.",
+            "zone": "membres"
+          },
+          {
+            "id": "ausc_cardiaque",
+            "libelle": "Auscultation cardiaque",
+            "technique": "Auscultation",
+            "defaut": "Bruits du cœur réguliers, sans souffle.",
+            "zone": "thorax"
+          },
+          {
+            "id": "jugulaires",
+            "libelle": "Veines jugulaires",
+            "technique": "Inspection",
+            "defaut": "Pas de turgescence jugulaire.",
+            "zone": "tete"
+          }
+        ]
+      },
+      {
+        "id": "abdomen",
+        "libelle": "Abdomen",
+        "manoeuvres": [
+          {
+            "id": "abd_inspection",
+            "libelle": "Abdomen : inspection",
+            "technique": "Inspection",
+            "defaut": "Abdomen plat, sans cicatrice ni circulation collatérale.",
+            "zone": "abdomen"
+          },
+          {
+            "id": "abd_auscultation",
+            "libelle": "Abdomen : bruits hydro-aériques",
+            "technique": "Auscultation",
+            "defaut": "Bruits hydro-aériques présents et normaux.",
+            "zone": "abdomen"
+          },
+          {
+            "id": "abd_percussion",
+            "libelle": "Abdomen : percussion",
+            "technique": "Percussion",
+            "defaut": "Tympanisme normal, matité hépatique conservée.",
+            "zone": "abdomen"
+          },
+          {
+            "id": "abd_palpation",
+            "libelle": "Abdomen : palpation",
+            "technique": "Palpation",
+            "defaut": "Abdomen souple, dépressible, indolore.",
+            "zone": "abdomen"
+          },
+          {
+            "id": "foie_rate",
+            "libelle": "Foie et rate",
+            "technique": "Palpation",
+            "defaut": "Foie et rate non palpables, sans organomégalie.",
+            "zone": "abdomen"
+          },
+          {
+            "id": "lombes",
+            "libelle": "Fosses lombaires",
+            "technique": "Palpation",
+            "defaut": "Pas de douleur provoquée des fosses lombaires.",
+            "zone": "abdomen"
+          }
+        ]
+      },
+      {
+        "id": "neuro",
+        "libelle": "Neurologique",
+        "manoeuvres": [
+          {
+            "id": "glasgow",
+            "libelle": "Score de Glasgow",
+            "technique": "Évaluation",
+            "defaut": "Score de Glasgow à 15/15.",
+            "zone": "tete"
+          },
+          {
+            "id": "raideur_nuque",
+            "libelle": "Raideur de nuque",
+            "technique": "Manœuvre",
+            "defaut": "Nuque souple, flexion passive possible.",
+            "zone": "tete"
+          },
+          {
+            "id": "kernig",
+            "libelle": "Signe de Kernig",
+            "technique": "Manœuvre",
+            "defaut": "Signe de Kernig négatif.",
+            "zone": "membres"
+          },
+          {
+            "id": "brudzinski",
+            "libelle": "Signe de Brudzinski",
+            "technique": "Manœuvre",
+            "defaut": "Signe de Brudzinski négatif.",
+            "zone": "tete"
+          },
+          {
+            "id": "pupilles",
+            "libelle": "Pupilles et réflexe photomoteur",
+            "technique": "Inspection",
+            "defaut": "Pupilles égales, rondes, réactives.",
+            "zone": "tete"
+          },
+          {
+            "id": "nerfs_craniens",
+            "libelle": "Nerfs crâniens et oculomotricité",
+            "technique": "Évaluation",
+            "defaut": "Pas de paralysie des nerfs crâniens, pas de déficit oculomoteur.",
+            "zone": "tete"
+          },
+          {
+            "id": "motricite",
+            "libelle": "Force musculaire et déficit moteur",
+            "technique": "Évaluation",
+            "defaut": "Pas de déficit moteur focal.",
+            "zone": "membres"
+          },
+          {
+            "id": "reflexes",
+            "libelle": "Réflexes tendineux et signe de Babinski",
+            "technique": "Manœuvre",
+            "defaut": "Réflexes tendineux symétriques, signe de Babinski absent.",
+            "zone": "membres"
+          }
+        ]
+      },
+      {
+        "id": "membres",
+        "libelle": "Membres",
+        "manoeuvres": [
+          {
+            "id": "oedemes",
+            "libelle": "Œdèmes des membres inférieurs",
+            "technique": "Inspection",
+            "defaut": "Pas d'œdème des membres inférieurs.",
+            "zone": "membres"
+          },
+          {
+            "id": "mollets",
+            "libelle": "Mollets : douleur, signes de phlébite",
+            "technique": "Palpation",
+            "defaut": "Mollets souples et indolores.",
+            "zone": "membres"
+          }
+        ]
+      }
+    ],
+    "pertinences": {
+      "cle": "Manœuvre clé",
+      "utile": "Utile",
+      "systematique": "Systématique"
+    },
+    "outils": [
+      {
+        "id": "inspect",
+        "nom": "Inspecter",
+        "techniques": ["Inspection"],
+        "icone": "M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+      },
+      {
+        "id": "palp",
+        "nom": "Palper",
+        "techniques": ["Palpation"],
+        "icone": "M8 13V5a2 2 0 0 1 4 0v6M12 11V4a2 2 0 0 1 4 0v8M16 12V7a2 2 0 0 1 4 0v8a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3l-3-5a2 2 0 0 1 3-2l2 2"
+      },
+      {
+        "id": "perc",
+        "nom": "Percuter",
+        "techniques": ["Percussion"],
+        "icone": "M4 20l8-8M14 4l6 6M12 12l4-4M3 21l3-1"
+      },
+      {
+        "id": "ausc",
+        "nom": "Ausculter",
+        "techniques": ["Auscultation"],
+        "icone": "M6 3v6a4 4 0 0 0 8 0V3M10 13v2a5 5 0 0 0 10 0v-2M20 11a2 2 0 1 0 0 4"
+      },
+      {
+        "id": "neuro",
+        "nom": "Neuro",
+        "techniques": ["Manœuvre", "Évaluation"],
+        "icone": "M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"
+      }
+    ],
+    "zones": [
+      {
+        "id": "tete",
+        "nom": "Tête et cou",
+        "boites": [
+          {
+            "nom": "Tête et cou",
+            "l": 62,
+            "t": 2,
+            "w": 76,
+            "h": 62
+          }
+        ]
+      },
+      {
+        "id": "thorax",
+        "nom": "Thorax",
+        "boites": [
+          {
+            "nom": "Thorax",
+            "l": 46,
+            "t": 68,
+            "w": 108,
+            "h": 58
+          }
+        ]
+      },
+      {
+        "id": "abdomen",
+        "nom": "Abdomen",
+        "boites": [
+          {
+            "nom": "Abdomen",
+            "l": 50,
+            "t": 130,
+            "w": 100,
+            "h": 64
+          }
+        ]
+      },
+      {
+        "id": "membres",
+        "nom": "Membres",
+        "boites": [
+          {
+            "nom": "Bras gauche",
+            "l": 4,
+            "t": 72,
+            "w": 38,
+            "h": 124
+          },
+          {
+            "nom": "Bras droit",
+            "l": 158,
+            "t": 72,
+            "w": 38,
+            "h": 124
+          },
+          {
+            "nom": "Jambes",
+            "l": 56,
+            "t": 200,
+            "w": 88,
+            "h": 96
+          }
+        ]
+      },
+      {
+        "id": "general",
+        "nom": "Corps entier",
+        "boites": []
+      }
+    ],
+    "consigneCarte": "1. Choisissez un outil. 2. Touchez une zone du corps.",
+    "resultatTitre": "Résultat",
+    "resultatVide": "Touchez une zone du corps pour examiner la patiente.",
+    "rienOutil": "Rien de particulier à noter avec cet outil sur cette zone.",
+    "zoneGenerale": "Corps entier"
+  },
+  "accueil": {
+    "salutation": "Bonjour, Docteur",
+    "accroche": "On s'entraîne ?",
+    "casDuJour": "Cas du jour",
+    "jouer": "Jouer",
+    "titreServices": "Services",
+    "titreExpress": "Entraînement express",
+    "bientot": "Bientôt",
+    "unCas": "1 cas",
+    "nCas": "{n} cas",
+    "messageBientot": "Ce mode arrive bientôt.",
+    "menu": "Menu",
+    "retourMenu": "Retour au menu",
+    "titreCasService": "Cas disponibles",
+    "serviceVide": "Les cas de ce service arrivent bientôt. Revenez vite !",
+    "jouerCas": "Jouer ce cas",
+    "themeVersSombre": "Passer en mode sombre",
+    "themeVersClair": "Passer en mode clair",
+    "services": [
+      {
+        "id": "medecine-interne",
+        "nom": "Médecine interne",
+        "couleur": "bleu",
+        "icone": "M3 12h4l3-8 4 16 3-8h4"
+      },
+      {
+        "id": "urgences",
+        "nom": "Urgences",
+        "couleur": "violet",
+        "icone": "M12 5v14M5 12h14"
+      },
+      {
+        "id": "reanimation",
+        "nom": "Réanimation",
+        "couleur": "rouge",
+        "icone": "M13 2L4 14h7l-1 8 9-12h-7z"
+      },
+      {
+        "id": "gyneco-obstetrique",
+        "nom": "Gynéco-obstétrique",
+        "couleur": "rose",
+        "icone": "M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"
+      },
+      {
+        "id": "pediatrie",
+        "nom": "Pédiatrie",
+        "couleur": "jaune",
+        "icone": "M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"
+      },
+      {
+        "id": "chirurgie",
+        "nom": "Chirurgie",
+        "couleur": "vert",
+        "icone": "M4 20L16 8M14 4l6 6-3 1-4-4z"
+      }
+    ],
+    "express": [
+      {
+        "id": "cas-rapide",
+        "nom": "Cas rapide",
+        "sous": "5 min",
+        "icone": "M13 2L4 14h7l-1 8 9-12h-7z"
+      },
+      {
+        "id": "quiz-eclair",
+        "nom": "Quiz éclair",
+        "sous": "10 questions",
+        "icone": "M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"
+      },
+      {
+        "id": "diagnostic-minute",
+        "nom": "Diagnostic en 1 minute",
+        "sous": "Chrono",
+        "icone": "M12 7v5l3 2M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"
+      }
+    ],
+    "quitterConfirmation": "Quitter ce cas et revenir au menu ? Votre progression sera perdue."
+  }
+}

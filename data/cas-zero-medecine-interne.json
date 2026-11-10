@@ -1,0 +1,443 @@
+{
+  "id": "cas-zero-medecine-interne",
+  "titre": "Alerte aux Urgences : Fléchissement de la conscience",
+  "specialite": "Médecine Interne",
+  "scoreInitial": 100,
+  "metadonnees": {
+    "difficulte": "Intermédiaire",
+    "dureeEstimee": "10 minutes"
+  },
+  "regles": {
+    "penaliteAide": 2,
+    "tentativesDiagnosticAvantReponse": 3
+  },
+  "introduction": {
+    "titre": "Aperçu",
+    "description": "Les informations initiales du dossier sont disponibles : lieu de prise en charge, contexte de la consultation, motif de consultation et constantes vitales.",
+    "lieu": "Service des Urgences",
+    "contexte": "Patiente de 29 ans, emmenée par sa famille pour évaluation d'un fléchissement de l'état de conscience. Sans antécédents morbides connus.",
+    "motifConsultation": "Fléchissement de l'état de conscience",
+    "libelles": {
+      "lieu": "Lieu de prise en charge",
+      "contexte": "Contexte de la consultation",
+      "motifConsultation": "Motif de consultation",
+      "constantes": "Constantes"
+    }
+  },
+  "etapes": {
+    "etape1_anamnese": {
+      "titre": "Anamnèse et Histoire",
+      "presentationInitiale": "Patiente de 29 ans, emmenée par sa famille pour fléchissement de l'état de conscience. Sans antécédents morbides connus.",
+      "accueil": "Docteur, aidez-la s'il vous plaît, elle va de plus en plus mal !",
+      "resumeHistoire": "L'histoire remonte à 5 jours par des céphalées pour lesquelles la patiente s'est automédiquée avec des AINS. L'évolution a été marquée par l'aggravation des céphalées, une fièvre modérée sans horaires précis et une agitation. Elle a reçu du midazolam à domicile avant son transfert. Pas de vomissements, pas de convulsions.",
+      "recitSpontane": ["apparition", "automedication", "duree", "fievre"],
+      "elements": [
+        {
+          "id": "motif",
+          "pertinence": "cle",
+          "reponse": "On l'a amenée parce qu'elle n'est plus comme d'habitude : elle répond à peine, elle s'agite, et elle se plaignait de la tête depuis plusieurs jours.",
+          "note": "Baisse de la vigilance, agitation, céphalées depuis plusieurs jours"
+        },
+        {
+          "id": "trouble_conscience",
+          "rubrique": "symptome_dominant",
+          "pertinence": "cle",
+          "libelle": "Installation du trouble de la conscience",
+          "questionExemple": "Depuis quand ne répond-elle plus comme d'habitude ? Comment cela est-il arrivé ?",
+          "motsCles": [
+            "conscience", "eveill", "reveil", "repond", "reagit", "somnol", "coma", "inconscien",
+            "evanou", "connaissance", "vigilance", "reconnait", "n est plus comme",
+            "ne repond plus", "fatigue", "endormie"
+          ],
+          "reponse": "Hier soir elle parlait encore, mais elle était de plus en plus fatiguée. Ce matin elle répondait à peine, c'est pour ça qu'on l'a amenée.",
+          "note": "Baisse progressive de la vigilance (hier soir, puis ce matin)",
+          "pourquoi": "Dater et caractériser l'installation du trouble de la conscience (brutale ou progressive) oriente fortement vers sa cause.",
+          "aValider": true
+        },
+        {
+          "id": "allergies",
+          "pertinence": "cle",
+          "reponse": "Non, on ne lui connaît aucune allergie, ni aux médicaments ni à autre chose.",
+          "note": "Pas d'allergie connue",
+          "pourquoi": "Avant de prescrire un antibiotique ou un antipaludique, il faut exclure une allergie médicamenteuse.",
+          "aValider": true
+        },
+        {
+          "id": "grossesse",
+          "pertinence": "cle",
+          "reponse": "Elle n'est pas enceinte à ma connaissance, et ses règles sont normales.",
+          "note": "Pas de grossesse connue, règles normales",
+          "pourquoi": "Chez une femme de 29 ans, la grossesse peut modifier le choix des examens et des antipaludiques.",
+          "aValider": true
+        },
+        {
+          "id": "apparition",
+          "pertinence": "cle",
+          "reponse": "Ça a commencé il y a cinq jours, par des maux de tête.",
+          "note": "Céphalées depuis 5 jours",
+          "pourquoi": "Dater le début situe la maladie dans le temps : ici 5 jours d'évolution avant l'arrivée aux urgences.",
+          "exclusions": ["repond", "reagit", "conscience", "eveill", "reveil"]
+        },
+        {
+          "id": "localisation",
+          "pertinence": "utile",
+          "reponse": "Elle se tenait la tête à deux mains, ça lui faisait mal un peu partout.",
+          "note": "Céphalées diffuses",
+          "aValider": true
+        },
+        {
+          "id": "duree",
+          "pertinence": "cle",
+          "reponse": "Ça n'a pas arrêté depuis le début, et c'est devenu de plus en plus fort au fil des jours.",
+          "note": "Céphalées continues, de plus en plus fortes",
+          "pourquoi": "Une douleur qui s'aggrave jour après jour est un signe d'alerte : elle oriente vers une cause organique qui progresse plutôt que vers une céphalée banale.",
+          "aValider": true
+        },
+        {
+          "id": "caractere",
+          "pertinence": "utile",
+          "reponse": "Elle disait que ça lui serrait la tête comme un étau.",
+          "note": "Douleur « en étau »",
+          "aValider": true
+        },
+        {
+          "id": "facteurs",
+          "pertinence": "utile",
+          "reponse": "Les comprimés contre la douleur la soulageaient un peu au début, puis ils ne faisaient plus d'effet. Rien d'autre ne changeait.",
+          "note": "Soulagée un peu par les AINS au début, puis plus",
+          "aValider": true
+        },
+        {
+          "id": "irradiation",
+          "pertinence": "utile",
+          "reponse": "Pas que je sache, elle se plaignait surtout de la tête.",
+          "note": "Pas d'irradiation signalée",
+          "aValider": true
+        },
+        {
+          "id": "chronologie",
+          "pertinence": "utile",
+          "reponse": "C'était présent jour et nuit, sans horaire particulier.",
+          "note": "Présentes jour et nuit",
+          "aValider": true
+        },
+        {
+          "id": "gravite",
+          "pertinence": "utile",
+          "reponse": "C'était fort : elle ne dormait plus et restait couchée toute la journée.",
+          "note": "Intensité forte, retentissement important (sommeil, activité)",
+          "aValider": true
+        },
+        {
+          "id": "symptomes_associes",
+          "pertinence": "utile",
+          "reponse": "Elle avait de la fièvre, et elle s'est mise à s'agiter. Elle n'a pas vomi et elle n'a pas fait de convulsions.",
+          "inclut": ["agitation", "vomissements", "convulsions"],
+          "note": "Fièvre, agitation ; ni vomissements ni convulsions"
+        },
+        {
+          "id": "traumatisme",
+          "pertinence": "utile"
+        },
+        {
+          "id": "fievre",
+          "rubrique": "histoire_maladie",
+          "sousRubrique": "associes",
+          "pertinence": "cle",
+          "libelle": "Fièvre (présence, intensité, rythme)",
+          "questionExemple": "Avait-elle de la fièvre ? Comment était-elle au cours de la journée ?",
+          "motsCles": ["fievre", "chaud", "temperature", "frisson", "thermometre", "brulante"],
+          "reponse": "Oui, elle avait de la fièvre, pas très forte, mais sans horaire précis : elle pouvait être chaude à n'importe quel moment.",
+          "note": "Fièvre modérée, sans horaire précis",
+          "pourquoi": "Une fièvre associée à des céphalées et à des troubles de la conscience doit faire évoquer une infection du système nerveux ou un paludisme grave."
+        },
+        {
+          "id": "agitation",
+          "rubrique": "histoire_maladie",
+          "sousRubrique": "associes",
+          "pertinence": "utile",
+          "libelle": "Agitation ou trouble du comportement",
+          "questionExemple": "S'est-elle agitée ? Son comportement a-t-il changé ?",
+          "motsCles": ["agitee", "agitation", "agite", "nerveu", "delir", "hallucin", "confus", "comportement"],
+          "reponse": "Oui, elle s'est mise à s'agiter, elle ne tenait plus en place.",
+          "note": "Agitation",
+          "pourquoi": "L'agitation est un trouble du comportement qui peut accompagner une atteinte cérébrale ou une infection sévère."
+        },
+        {
+          "id": "vomissements",
+          "rubrique": "histoire_maladie",
+          "sousRubrique": "associes",
+          "pertinence": "utile",
+          "libelle": "Vomissements",
+          "questionExemple": "A-t-elle vomi ?",
+          "motsCles": ["vomi", "nausee", "rendu", "bile"],
+          "reponse": "Non, elle n'a pas vomi.",
+          "note": "Pas de vomissements",
+          "pourquoi": "Les vomissements orientent vers une hypertension intracrânienne ou une cause digestive : leur absence compte aussi."
+        },
+        {
+          "id": "convulsions",
+          "rubrique": "histoire_maladie",
+          "sousRubrique": "associes",
+          "pertinence": "utile",
+          "libelle": "Convulsions",
+          "questionExemple": "A-t-elle eu des convulsions ?",
+          "motsCles": ["convuls", "epilep", "trembl", "revuls", "secousse", "mouvements anormaux"],
+          "reponse": "Non, elle n'a pas fait de convulsions.",
+          "note": "Pas de convulsions",
+          "pourquoi": "Les convulsions signalent une souffrance cérébrale et peuvent justifier un traitement urgent."
+        },
+        {
+          "id": "automedication",
+          "rubrique": "histoire_maladie",
+          "sousRubrique": "prise_en_charge",
+          "pertinence": "cle",
+          "libelle": "Automédication",
+          "questionExemple": "A-t-elle pris des médicaments pour ses maux de tête ? Lesquels ?",
+          "motsCles": [
+            "=ains", "anti inflammatoire", "automedication", "paracetamol", "ibuprofene",
+            "aspirine", "diclofenac", "antidouleur", "antalgique", "comprime", "medicament",
+            "pris quelque chose", "pris pour", "pour soulager", "elle pris", "a pris", "ont pris",
+            "cachet", "sans ordonnance", "pharmacie"
+          ],
+          "reponse": "Oui, pour les maux de tête elle a pris des anti-inflammatoires qu'on avait à la maison, sans demander l'avis d'un médecin.",
+          "note": "Automédication par AINS",
+          "pourquoi": "L'automédication par anti-inflammatoires peut masquer la fièvre et retarder la prise en charge.",
+          "exclusions": ["habituel", "long cours", "regulierement"]
+        },
+        {
+          "id": "midazolam",
+          "rubrique": "histoire_maladie",
+          "sousRubrique": "prise_en_charge",
+          "pertinence": "cle",
+          "libelle": "Traitement reçu à domicile avant le transfert",
+          "questionExemple": "Lui a-t-on donné quelque chose avant de l'amener ?",
+          "motsCles": [
+            "midazolam", "hypnovel", "sedatif", "sedation", "calmant", "calmer", "piqure",
+            "injection", "avant de venir", "avant de l amener", "avant l hopital",
+            "donne quelque chose", "donne un traitement", "donne un medicament", "a la maison",
+            "domicile", "premiers soins", "on lui a donne", "lui a ete donne",
+            "lui avez vous donne", "endormir", "benzodiazepine", "diazepam", "valium"
+          ],
+          "reponse": "Oui, avant de venir on lui a donné du midazolam à la maison pour la calmer, parce qu'elle s'agitait beaucoup.",
+          "note": "Midazolam reçu à domicile avant le transfert",
+          "pourquoi": "Un sédatif donné avant l'arrivée peut aggraver la baisse de la conscience et fausse l'examen neurologique.",
+          "exclusions": ["autres personnes", "d autres", "entourage", "autres malades"]
+        },
+        {
+          "id": "prevention_palu",
+          "pertinence": "cle",
+          "reponse": "Elle dort rarement sous moustiquaire, et elle ne prend aucun traitement préventif contre le paludisme.",
+          "note": "Pas de prévention du paludisme régulière",
+          "pourquoi": "En zone d'endémie palustre, l'absence de prévention augmente la probabilité d'un paludisme et doit faire penser à le rechercher.",
+          "aValider": true
+        }
+      ],
+      "aide": "Demandez à la famille comment la maladie a débuté ou s'il y a eu une prise de médicaments à domicile."
+    },
+    "etape2_examen_physique": {
+      "titre": "Examen Physique",
+      "constantes": {
+        "tension": "112/76 mmhg",
+        "frequenceCardiaque": "86 bpm",
+        "frequenceRespiratoire": "20 cpm",
+        "saturation": "97% en air ambiant",
+        "temperature": "38,9 °C",
+        "glycemieCapillaire": "110 mg/dl"
+      },
+      "aide": "N'oubliez pas de vérifier les constantes vitales et de faire un examen neurologique complet (raideur de nuque, score de Glasgow).",
+      "malusSiOubli": 10,
+      "manoeuvres": [
+        {
+          "id": "aspect_general",
+          "pertinence": "utile",
+          "resultat": "Patiente fébrile, agitée, confuse : elle ne répond pas de façon adaptée aux questions.",
+          "pourquoi": "L'inspection générale apprécie d'emblée la gravité : fièvre, agitation et trouble de la conscience orientent vers une urgence neuro-infectieuse.",
+          "aValider": true
+        },
+        {
+          "id": "hydratation",
+          "pertinence": "systematique",
+          "resultat": "Muqueuse buccale et langue humides, pas de pli cutané."
+        },
+        {
+          "id": "conjonctives",
+          "pertinence": "utile",
+          "resultat": "Conjonctives palpébrales bien colorées, conjonctives bulbaires anictériques.",
+          "pourquoi": "Pâleur et ictère cherchent une anémie hémolytique ou une atteinte hépatique, deux signes de gravité du paludisme."
+        },
+        {
+          "id": "ganglions",
+          "pertinence": "systematique",
+          "resultat": "Aires ganglionnaires superficielles libres."
+        },
+        {
+          "id": "peau",
+          "pertinence": "utile",
+          "pourquoi": "Un purpura devant une fièvre avec raideur de nuque évoque une méningococcie : c'est une urgence immédiate."
+        },
+        {
+          "id": "ausc_pulmonaire",
+          "pertinence": "systematique",
+          "resultat": "Murmure vésiculaire pur."
+        },
+        {
+          "id": "ausc_cardiaque",
+          "pertinence": "systematique",
+          "resultat": "Bruits cardiaques audibles et réguliers à 86 bpm."
+        },
+        {
+          "id": "abd_palpation",
+          "pertinence": "systematique",
+          "resultat": "Abdomen non ballonné, souple, dépressible, sans organomégalie."
+        },
+        {
+          "id": "foie_rate",
+          "pertinence": "utile",
+          "pourquoi": "Une splénomégalie ou une hépatomégalie oriente vers le paludisme."
+        },
+        {
+          "id": "oedemes",
+          "pertinence": "systematique",
+          "resultat": "Membres inférieurs eutrophiques, sans œdème."
+        },
+        {
+          "id": "glasgow",
+          "pertinence": "cle",
+          "resultat": "Score de Glasgow à 12/15 : patiente agitée, ouverture des yeux à la voix, réponse verbale confuse.",
+          "pourquoi": "Le Glasgow chiffre le trouble de la conscience, sert de référence pour la surveillance et décide de l'urgence de l'imagerie avant la ponction lombaire.",
+          "aValider": true
+        },
+        {
+          "id": "raideur_nuque",
+          "pertinence": "cle",
+          "resultat": "Nuque raide : la flexion passive de la tête est limitée et douloureuse.",
+          "pourquoi": "La raideur de nuque est le signe clé du syndrome méningé : elle impose de penser à une méningite et de faire la ponction lombaire."
+        },
+        {
+          "id": "kernig",
+          "pertinence": "cle",
+          "resultat": "Signe de Kernig positif.",
+          "pourquoi": "Avec Brudzinski, Kernig complète la recherche d'un syndrome méningé.",
+          "aValider": true
+        },
+        {
+          "id": "brudzinski",
+          "pertinence": "cle",
+          "resultat": "Signe de Brudzinski négatif.",
+          "pourquoi": "Un signe négatif n'élimine pas la méningite : on le recherche avec la raideur de nuque et Kernig."
+        },
+        {
+          "id": "pupilles",
+          "pertinence": "utile",
+          "pourquoi": "Des pupilles inégales ou non réactives font craindre un engagement cérébral et imposent l'imagerie avant la ponction lombaire."
+        },
+        {
+          "id": "motricite",
+          "pertinence": "utile",
+          "pourquoi": "Un déficit moteur focal est un signe de localisation : il oriente vers l'imagerie avant la ponction lombaire."
+        }
+      ]
+    },
+    "etape3_paraclinique": {
+      "titre": "Bilan Paraclinique",
+      "question": "Quels examens complémentaires demandez-vous en urgence ?",
+      "examensValides": {
+        "imagerie_cerebrale": {
+          "libelle": "Imagerie cérébrale",
+          "groupeAlternatif": "exclusion_engagement",
+          "motsCles": ["scanner", "tdm", "irm", "imagerie", "tomodensitometrie", "scan"],
+          "resultat": "Pas d'effet de masse, pas de signe d'engagement cérébral."
+        },
+        "fond_oeil": {
+          "libelle": "Fond d'œil",
+          "groupeAlternatif": "exclusion_engagement",
+          "motsCles": [
+            "fond d oeil", "fond oeil", "fo", "fundus", "fundoscopie", "ophtalmoscopie", "papille",
+            "oedeme papillaire"
+          ],
+          "resultat": "Pas d'œdème papillaire."
+        },
+        "ponction_lombaire": {
+          "libelle": "Ponction lombaire",
+          "motsCles": ["pl", "ponction", "lombaire", "lcr"],
+          "prerequis": {
+            "groupe": "exclusion_engagement",
+            "malus": 10,
+            "libelleJournal": "Ponction lombaire sans exclure un engagement cérébral",
+            "message": "Avant toute ponction lombaire, il faut éliminer un engagement cérébral : demandez d'abord une imagerie cérébrale ou, à défaut, un fond d'œil."
+          },
+          "resultat": "LCR clair, coulant goutte à goutte. Cytologie : 57 éléments/mm³ (N 72%, L 28%). Biochimie : protéines à 19,32 mg/dl, glucose à 65,9 mg/dl (glycémie concomitante à 124 mg/dl)."
+        },
+        "goutte_epaisse": {
+          "libelle": "Goutte épaisse",
+          "motsCles": ["ge", "goutte", "epaisse", "frottis", "palu"],
+          "resultat": "Goutte épaisse : Positive à Plasmodium falciparum."
+        }
+      },
+      "examensAcceptables": [
+        {
+          "nom": "Bilan sanguin standard",
+          "motsCles": [
+            "nfs", "fns", "hemogramme", "numeration", "formule sanguine", "ionogramme",
+            "creatinine", "uree", "crp", "bilan biologique"
+          ],
+          "malus": 0
+        },
+        {
+          "nom": "Glycémie capillaire",
+          "motsCles": ["glycemie", "dextro", "hgt"],
+          "resultat": "Glycémie capillaire déjà réalisée : 110 mg/dl.",
+          "malus": 0
+        }
+      ],
+      "malusExamenInutile": 10,
+      "aide": "Face à un syndrome méningé fébrile avec troubles de la conscience en zone d'endémie, deux examens invasifs et biologiques sont prioritaires. Avant toute ponction lombaire, il faut éliminer un risque d'engagement cérébral."
+    },
+    "etape4_diagnostic": {
+      "titre": "Poser le Diagnostic",
+      "question": "Quel est votre diagnostic précis ?",
+      "diagnosticsAttendus": [
+        {
+          "nom": "Méningo-encéphalite",
+          "points": 10,
+          "motsCles": ["meningo", "encephalite", "meningite", "meninge"]
+        },
+        {
+          "nom": "Paludisme grave",
+          "points": 10,
+          "motsCles": ["paludisme", "palu", "plasmodium", "malaria", "neuropalu"]
+        }
+      ],
+      "aide": "Il y a une double atteinte. L'une est liée au LCR cellulaire, l'autre à la positivité de la goutte épaisse avec critère neurologique."
+    },
+    "etape5_traitement": {
+      "titre": "Prise en Charge Thérapeutique",
+      "traitementsObligatoires": ["artisunate", "quinine", "ceftriaxone", "antibiotique"],
+      "groupesTraitement": [
+        {
+          "libelle": "Antipaludique",
+          "motsCles": ["artisunate", "artesunate", "artesunat", "quinine"]
+        },
+        {
+          "libelle": "Antibiotique",
+          "motsCles": ["ceftriaxone", "antibiotique", "antibio", "rocephine"]
+        }
+      ],
+      "erreursFatales": {
+        "motsCles": ["midazolam", "diazepam", "sedation", "sedatif", "ignorer pl"],
+        "punition": 30,
+        "message": "Erreur fatale : Ré-administrer des sédatifs sans contrôle des voies aériennes ou ignorer la suspicion de méningite bactérienne aggrave immédiatement le patient."
+      }
+    },
+    "etape6_debriefing": {
+      "titre": "Débriefing Pédagogique",
+      "pointsCles": [
+        "Piège des AINS : L'automédication a masqué l'évolution initiale de l'infection.",
+        "Danger du Midazolam : Donner un sédatif à domicile sur un cerveau en souffrance a aggravé le fléchissement de la conscience.",
+        "Règle d'or : Une goutte épaisse positive n'exclut jamais une méningite bactérienne ou virale associée (co-infection).",
+        "Sécurité de la PL : Éliminer un engagement cérébral (imagerie, à défaut fond d'œil) avant toute ponction lombaire."
+      ]
+    }
+  }
+}
