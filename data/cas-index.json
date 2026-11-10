@@ -1,0 +1,14 @@
+{
+  "cas": [
+    {
+      "id": "cas-zero-medecine-interne",
+      "fichier": "data/cas-zero-medecine-interne.json",
+      "service": "medecine-interne",
+      "titre": "Alerte aux Urgences : Fléchissement de la conscience",
+      "difficulte": "Intermédiaire",
+      "duree": "10 minutes",
+      "aLaUne": true,
+      "resume": "Femme de 29 ans amenée aux urgences par sa famille : son état de conscience fléchit."
+    }
+  ]
+}
